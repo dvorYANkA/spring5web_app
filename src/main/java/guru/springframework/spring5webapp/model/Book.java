@@ -12,8 +12,9 @@ public class Book
     private long id;
     private String tltle;
     private String isbn;
-    @ManyToOne
-    private Publisher publisher;
+
+    //@ManyToOne
+    //private Publisher publisher;
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
@@ -53,13 +54,13 @@ public class Book
         this.isbn = isbn;
     }
 
-    public Publisher getPublisher() {
+   /* public Publisher getPublisher() {
         return publisher;
-    }
+    }*/
 
-    public void setPublisher(Publisher publisher) {
+   /* public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
-    }
+    }*/
 
     public Set<Author> getAuthors() {
         return authors;

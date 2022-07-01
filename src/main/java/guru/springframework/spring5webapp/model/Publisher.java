@@ -14,15 +14,15 @@ public class Publisher {
     private String state;
     private String zip;
 
-    @ManyToOne
-    private Set<Book> books = new HashSet<>();
+    //@ManyToOne
+   // private Set<Book> books = new HashSet<>();
 
     public Publisher(String addressLine1, String city, String state, String zip/*, Set<Book> books*/) {
         this.addressLine1 = addressLine1;
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.books = books;
+        //this.books = books;
     }
 
     public long getId() {
@@ -65,13 +65,13 @@ public class Publisher {
         this.zip = zip;
     }
 
-    public Set<Book> getBooks() {
+  /*  public Set<Book> getBooks() {
         return books;
     }
 
     public void setBooks(Set<Book> books) {
         this.books = books;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -81,7 +81,7 @@ public class Publisher {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
-                ", books=" + books +
+             //   ", books=" + books +
                 '}';
     }
 
