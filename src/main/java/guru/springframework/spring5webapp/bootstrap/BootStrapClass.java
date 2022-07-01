@@ -22,7 +22,7 @@ public class BootStrapClass implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Author eric = new Author("Eric","Evans");
-        //Publisher publisher = new Publisher("Address Line 1","Any City","Any State","Any Zip");
+        Publisher publisher = new Publisher("Address Line 1","Any City","Any State","Any Zip");
         Book ddd = new Book("Some book","some isbn"/*,publisher*/);
         ddd.getAuthors().add(eric);
         eric.getBooks().add(ddd);
