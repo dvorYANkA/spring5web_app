@@ -9,20 +9,25 @@ public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String addressLine1;
+    private String name;
     private String city;
     private String state;
     private String zip;
 
-    //@ManyToOne
-   // private Set<Book> books = new HashSet<>();
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books = new HashSet<>();
 
-    public Publisher(String addressLine1, String city, String state, String zip/*, Set<Book> books*/) {
-        this.addressLine1 = addressLine1;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        //this.books = books;
+    public Publisher() {
+    }
+
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 
     public long getId() {
@@ -33,12 +38,12 @@ public class Publisher {
         this.id = id;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
+    public String getName() {
+        return name;
     }
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setName(String addressLine1) {
+        this.name = addressLine1;
     }
 
     public String getCity() {
@@ -65,19 +70,11 @@ public class Publisher {
         this.zip = zip;
     }
 
-  /*  public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }*/
-
     @Override
     public String toString() {
         return "Publisher{" +
                 "id=" + id +
-                ", addressLine1='" + addressLine1 + '\'' +
+                ", addressLine1='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip='" + zip + '\'' +
